@@ -1,0 +1,204 @@
+/*  
+ *
+ * GENERAL STYLES
+ *
+ ----------------
+*/
+html {
+	height: 100%;
+}
+body {
+	min-height: 100%;
+}
+html, body {
+	position: relative;
+	color: #3a3a3a;
+}
+.btn-primary {
+	background-color: #3cb878;
+	border-color: #3cb878;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+	background-color: #309360!important;
+	border-color: #309360!important;
+}
+textarea {
+	resize: none;
+}
+input {
+	height: 44px!important;
+}
+input, textarea {
+	border-radius: 0!important;
+}
+.input-group-addon:last-child {
+	border-radius: 0;
+}
+.input-group-addon {
+	background-color: #3cb878;
+	border-color: #3cb878;
+	color: #fff;
+	padding: 6px 18px;
+}
+input[type="file"] {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+@media (max-width: 768px) {
+	input, textarea {
+		font-size: 16px!important;
+	}
+}
+
+/*  
+ ----------------
+ *
+ * END GENERAL STYLES
+ *
+*/
+
+
+
+/*  
+ *
+ * NAV STYLES
+ *
+ ----------------
+*/
+
+.navbar {
+	border-radius: 0;
+	margin: 0;
+}
+.navbar-brand {
+	padding: 0;
+	margin-top: 7.5px;
+	/* navbar height on mobile is 64px (1px border), height of logo is 50px, difference divided by 2 */
+}
+.navbar-brand > img {
+	height: 100%;
+	padding: 7px 15px;
+	width: auto;
+}
+.navbar-toggle {
+	margin-right: 0;
+	margin-left: 15px;
+	font-size: 1.5em;
+}
+.navbar-inverse .navbar-toggle {
+	border: none;
+	color: #fff;
+}
+
+@media (min-width: 768px) {
+	.navbar-brand {
+		margin-top: 0;
+	}
+	.navbar-brand > img {
+		padding: 15px;
+	}
+	#navigation .close {
+		display: none;
+	}
+}
+
+@media (max-width: 768px) {
+	#navigation {
+		position: fixed;
+		left: 0;
+		top: -2px;
+		height: 100vh!important;
+		width: 0;
+		z-index: 999;
+		background-color: #fff;
+		overflow: scroll;
+	}
+	#navigation.in {
+		width: 260px;
+	}
+	#navigation .close {
+		padding-top: 15px;
+		font-size: 2.2em;
+		color: #3a3a3a;
+		opacity: 1;
+	}
+	#lightbox {
+		position: fixed;
+		display: none;
+		z-index: 500;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+}
+
+/*  
+ ----------------
+ *
+ * END NAV STYLES
+ *
+*/
+
+
+
+/*  
+ *
+ * INDEX STYLES
+ *
+ ----------------
+*/
+
+.btn-add-image {
+	padding: 1em 0;
+	border-radius: 0;
+	font-size: 16px;
+}
+.btn-add-image .pull-left {
+	padding-left: 15px;
+}
+.btn-add-image .pull-right {
+	padding-right: 15px;
+}
+
+/*  
+ ----------------
+ *
+ * END INDEX STYLES
+ *
+*/
+
+
+
+/*  
+ *
+ * UPLOAD STYLES
+ *
+ ----------------
+*/
+
+.upload-form {
+	margin-top: 5em;
+}
+label[for="imageFile"] {
+	vertical-align: middle;
+}
+.upload-helper {
+	vertical-align: middle;
+	margin-left: 10px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+/*  
+ ----------------
+ *
+ * END UPLOAD STYLES
+ *
+*/
+
