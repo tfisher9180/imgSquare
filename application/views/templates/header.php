@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="<?php echo base_url('vendor/twbs/bootstrap/dist/css/bootstrap.min.css'); ?>">
 		<link rel="stylesheet" href="<?php echo base_url('vendor/fortawesome/font-awesome/css/font-awesome.min.css'); ?>">
 		<link rel="stylesheet" href="<?php echo base_url('vendor/assets/css/main.css'); ?>">
+		<link rel="stylesheet" href="<?php echo base_url('vendor/dimsemenov/magnific-popup/dist/magnific-popup.css'); ?>">
 
 	</head>
 	<body>

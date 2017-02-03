@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+
 	// Close mobile side navigation on "X" click
 	$('#navigation .close').click(function() {
 		$('#navigation').collapse('hide');
@@ -17,6 +17,7 @@ $(document).ready(function() {
 
 	// Show image preview when choosing image to upload
 	$('#file').on('change', function() {
+		$('#file-error').hide();
 		var reader = new FileReader();
 
 		reader.onload = function(e) {
@@ -38,72 +39,18 @@ $(document).ready(function() {
 		$('#selected-img-name').text('');
 	});
 
-	// Set some jQuery Validation defaults to use Bootstrap classes
-	// http://stackoverflow.com/questions/36128361/jquery-validation-has-error-class-setting
-	$.validator.setDefaults({
-	    highlight: function(element) {
-
-	        $(element).closest('.form-group').addClass('has-error');
-
-	    },
-	    unhighlight: function(element) {
-
-	        $(element).closest('.form-group').removeClass('has-error');
-
-	    },
-	    errorElement: 'span',
-	    errorClass: 'help-block',
-	    errorPlacement: function(error, element) {
-	        if(element.parent('.input-group').length) {
-	            error.insertAfter(element.parent());
-	        } else {
-	            error.insertAfter(element);
-	        }
-    	}
+	// Display thumbnail overlay options on click
+	$('#image-list .thumbnail').click(function() {
+		$('.img-overlay').fadeOut();
+		var path = $(this).data('path');
+		var img = $(this).find('img');
+		$(this).find('.img-overlay').width(img.width()).height(img.height());
+		$('<div class="img-overlay text-center"><div class="overlay-buttons"><a href="'+path+'" class="btn btn-default popup-link"><i class="fa fa-search"></i></a><a class="btn btn-default"><i class="fa fa-eye"></i></a></div></div>').insertAfter(img);
 	});
 
-	// jQuery Validation file size method
-	$.validator.addMethod('filesize', function(value, element, param) {
-
-		var filesize = element.files[0].size;
-
-		if (filesize > 5048576) { // 5mb
-			return false;
-		} else {
-			return true;
-		}
-	});
-
-	// jQuery Validation upload form
-	$('#upload-form').validate({
-		rules: {
-			imageFile: {
-				required: true,
-				extension: "jpg|jpeg|png|gif",
-				filesize: true
-			},
-			title: {
-				required: true,
-				maxlength: 100
-			},
-			description: {
-				maxlength: 255
-			}
-		},
-		messages: {
-			imageFile: {
-				required: "Select an image to upload",
-				extension: "That doesn't look like an image file!",
-				filesize: "That file is too large"
-			},
-			title: {
-				required: "Enter a title for your image",
-				maxlength: jQuery.validator.format("Please enter no more than {0} characters")
-			},
-			description: {
-				maxlength: jQuery.validator.format("Please enter no more than {0} characters")
-			}
-		}
+	$('.popup-link').magnificPopup({
+		delegate: 'a',
+		type: 'image'
 	});
 
 });
