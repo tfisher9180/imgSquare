@@ -21,9 +21,15 @@
 
 		public function upload() {
 
+			if ($_POST) {
+
+			}
+
+			$footer['has_form'] = true;
+
 			$this->load->view('templates/header');
 			$this->load->view('images/upload');
-			$this->load->view('templates/footer');
+			$this->load->view('templates/footer', $footer);
 
 		}
 

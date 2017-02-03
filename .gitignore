@@ -12,6 +12,11 @@ user_guide_src/build/*
 user_guide_src/cilexer/build/*
 user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
+
+# for vendor folder
+# adding trailing /* will include the vendor folder, however ignore all subfolders
+# make an exception to our custom assets folder our CSS/JS/IMG etc
+# http://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder
 /vendor/*
 !/vendor/assets/
 
