@@ -14,9 +14,9 @@
 				<div class="row">
 				<?php foreach ($images as $image) { ?>
 					<div class="col-xs-4">
-						<a href="#" class="thumbnail center-block" data-path="<?php echo base_url('uploads/'.$image->file_name); ?>">
+						<div class="thumbnail center-block" data-path="<?php echo base_url('uploads/'.$image->file_name); ?>" data-view="<?php echo site_url('images/view/'.$image->id); ?>">
 							<img src="<?php echo base_url('uploads/'.$image->file_name); ?>" alt="<?php echo $image->title; ?>" class="img-responsive" />
-						</a>
+						</div>
 					</div>
 				<?php } ?>
 				</div>

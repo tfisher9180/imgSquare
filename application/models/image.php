@@ -8,7 +8,14 @@
 			parent::__construct();
 		}
 
-		public function get_images($select = '*', $where = NULL, $order_by) {
+		public function get_images($select = '*', $where = NULL, $order_by = NULL) {
+
+			if (!$order_by) {
+				$order_by = array(
+					'field' => '',
+					'direction' => ''
+				);
+			}
 
 			if ($select) {
 				$select = implode(', ', $select);
@@ -17,9 +24,13 @@
 			if (!$where) {
 				$query = $this->db->select($select)->order_by($order_by['field'], $order_by['direction'])->get('images');
 			} else {
-
+				$query = $this->db->select($select)->order_by($order_by['field'], $order_by['direction'])->get_where('images', $where);
 			}
 
+			if ($where['id']) {
+				return $query->row();
+			} 
+			
 			return $query->result();
 
 		}

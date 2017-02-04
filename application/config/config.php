@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-//$config['base_url'] = 'http://localhost/imgsquare/';
-$config['base_url'] = 'http://localhost:8080/imgsquare/';
+$config['base_url'] = 'http://localhost/imgsquare/';
+//$config['base_url'] = 'http://localhost:8080/imgsquare/';
 
 /*
 |--------------------------------------------------------------------------

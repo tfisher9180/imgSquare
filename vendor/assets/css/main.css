@@ -56,6 +56,12 @@ input[type="file"] {
 .alert {
 	margin-top: 20px!important;
 }
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+p {
+	margin: 0;
+}
 
 /*  
  ----------------
@@ -182,6 +188,7 @@ input[type="file"] {
 }
 #image-list .thumbnail {
 	position: relative;
+	cursor: pointer!important;
 }
 #image-list .thumbnail:hover, #image-list .thumbnail:focus, #image-list .thumbnail:active {
 	border-color: #3cb878!important;
@@ -193,14 +200,16 @@ input[type="file"] {
 	height: 100%;
 	width: 100%;
 	background-color: rgba(60, 184, 120, 0.8);
+	z-index: 999;
 }
-.img-overlay .overlay-buttons {
+.overlay-buttons {
 	position: absolute;
+	z-index: 1000;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-.img-overlay .overlay-buttons a {
+.overlay-buttons a {
 	display: inline;
 	margin: 0.2em;
 }
@@ -267,6 +276,38 @@ input[type="file"] {
  ----------------
  *
  * END UPLOAD STYLES
+ *
+*/
+
+
+
+/*  
+ *
+ * VIEW STYLES
+ *
+ ----------------
+*/
+
+.image-view {
+	margin-bottom: 30px;
+}
+.btn-download {
+	font-size: 16px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	margin-bottom: 25px;
+}
+.source-title .media-left i {
+	font-size: 3.6em;
+}
+.img-details-list {
+	margin-top: 30px;
+}
+
+/*  
+ ----------------
+ *
+ * END VIEW STYLES
  *
 */
 

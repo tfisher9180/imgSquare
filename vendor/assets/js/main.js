@@ -40,16 +40,19 @@ $(document).ready(function() {
 	});
 
 	// Display thumbnail overlay options on click
-	$('#image-list .thumbnail').click(function() {
-		$('.img-overlay').fadeOut();
+	$('#image-list .thumbnail').click(function(e) {
+		$('.img-overlay').fadeOut().remove();
+		$('.overlay-buttons').fadeOut().remove();
 		var path = $(this).data('path');
 		var img = $(this).find('img');
+		var view = $(this).data('view');
 		$(this).find('.img-overlay').width(img.width()).height(img.height());
-		$('<div class="img-overlay text-center"><div class="overlay-buttons"><a href="'+path+'" class="btn btn-default popup-link"><i class="fa fa-search"></i></a><a class="btn btn-default"><i class="fa fa-eye"></i></a></div></div>').insertAfter(img);
+		$('<div class="overlay-buttons"><a href="'+path+'" class="btn btn-default popup-link"><i class="fa fa-search"></i></a><a href="'+view+'" class="btn btn-default view-link"><i class="fa fa-eye"></i></a></div><div class="img-overlay text-center"></div>').insertAfter(img);
 	});
 
-	$('.popup-link').magnificPopup({
-		delegate: 'a',
+	// init magnificPopup on a DOM element and then delegate to a live element
+	$('.thumbnail').magnificPopup({
+		delegate: 'a.popup-link',
 		type: 'image'
 	});
 

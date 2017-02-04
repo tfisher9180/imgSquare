@@ -84,6 +84,18 @@
 
 		}
 
+		public function view($id) {
+
+			$select = array('id', 'date_uploaded', 'title', 'caption', 'file_name', 'source', 'image_height', 'image_width', 'image_type');
+			$where = array('id' => $id);
+			$data['image'] = $this->image->get_images($select, $where);
+
+			$this->load->view('templates/header');
+			$this->load->view('images/view', $data);
+			$this->load->view('templates/footer');
+
+		}
+
 	}
 
 ?>
