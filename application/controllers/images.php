@@ -11,16 +11,17 @@
 
 		public function index() {
 
-			$select = array('id', 'title', 'caption', 'image_type', 'file_name');
+			$select = array('id', 'title', 'caption', 'image_type', 'file_name', 'image_width');
 			$order_by = array(
 				'field' => 'date_uploaded',
 				'direction' => 'DESC'
 			);
 			$data['images'] = $this->image->get_images($select, null, $order_by);
+			$footer['scripts'] = array('masonry.pkgd.min.js', 'imagesloaded.pkgd.min');
 
 			$this->load->view('templates/header');
 			$this->load->view('images/index', $data);
-			$this->load->view('templates/footer');
+			$this->load->view('templates/footer', $footer);
 
 		}
 
@@ -50,7 +51,7 @@
 					$config = array (
 						'upload_path' => './uploads/',
 						'allowed_types' => 'jpg|jpeg|png|gif',
-						'max_size' => '5048576'
+						'max_size' => '12048576'
 					);
 
 					$this->load->library('upload', $config);
@@ -86,7 +87,7 @@
 
 		public function view($id) {
 
-			$select = array('id', 'date_uploaded', 'title', 'caption', 'file_name', 'source', 'image_height', 'image_width', 'image_type');
+			$select = array('id', 'date_uploaded', 'title', 'caption', 'file_name', 'source', 'image_height', 'image_width', 'image_type', 'file_size', 'file_type');
 			$where = array('id' => $id);
 			$data['image'] = $this->image->get_images($select, $where);
 

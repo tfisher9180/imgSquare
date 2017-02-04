@@ -56,4 +56,16 @@ $(document).ready(function() {
 		type: 'image'
 	});
 
+	// init Masonry and set settings
+	var $grid = $('.grid').masonry({
+		itemSelector: '.grid-item',
+		columnWidth: '.grid-sizer',
+		percentPosition: true
+	});
+
+	// do masonry layout only after images loaded
+	$grid.imagesLoaded().progress(function() {
+		$grid.masonry();
+	});
+
 });

@@ -27,7 +27,7 @@ $.validator.addMethod('filesize', function(value, element, param) {
 
 	var filesize = element.files[0].size;
 
-	if (filesize > 5048576) { // 5mb
+	if (filesize > 12048576) { // 5mb
 		return false;
 	} else {
 		return true;
